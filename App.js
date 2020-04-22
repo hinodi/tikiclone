@@ -1,113 +1,153 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import {
-  SafeAreaView,
   StyleSheet,
-  ScrollView,
+  Image,
   View,
   Text,
   StatusBar,
+  Dimensions,
+  ScrollView,
 } from 'react-native';
 
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+const {width} = Dimensions.get('window');
 
-const App: () => React$Node = () => {
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+
+const section_banner = require('./section_banner.png');
+const item_image = require('./item_image.png');
+
+const App = () => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          <Header />
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
+    <View>
+      <StatusBar barStyle="light-content" />
+      {/*  */}
+      <View style={styles.headerContainer}>
+        <View style={styles.inputContainer}>
+          <FontAwesome name="search" size={24} color="#969696" />
+          <Text style={styles.inputText}>Bạn tìm gì hôm nay?</Text>
+        </View>
+        {/*  */}
+        <View style={styles.cartContainer}>
+          <FontAwesome name="shopping-cart" size={24} color="#fff" />
+        </View>
+      </View>
+      {/*  */}
+      <View style={styles.bodyContainer}>
+        <View style={styles.sectionContainer}>
+          {/*  */}
+          <Text style={styles.sectionTitle}>Điện thoại - Máy tính bảng</Text>
+          {/*  */}
+          <Image source={section_banner} style={styles.sectionImage} />
+          {/*  */}
+          <ScrollView horizontal={true}>
+            <View style={styles.listItemContainer}>
+              {/*  */}
+              <View style={styles.itemContainer}>
+                <Image source={item_image} style={styles.itemImage} />
+                <Text style={styles.itemName} numberOfLines={2}>
+                  Điện thoại Vsmart Bee(aaaaaaaaa)
+                </Text>
+                <Text style={styles.itemPrice}>699.000đ</Text>
+              </View>
+              {/*  */}
+              <View style={styles.itemContainer}>
+                <Image source={item_image} style={styles.itemImage} />
+                <Text style={styles.itemName} numberOfLines={2}>
+                  Điện thoại Vsmart Bee(aaaaaaaaa)
+                </Text>
+                <Text style={styles.itemPrice}>699.000đ</Text>
+              </View>
+              {/*  */}
+              <View style={styles.itemContainer}>
+                <Image source={item_image} style={styles.itemImage} />
+                <Text style={styles.itemName} numberOfLines={2}>
+                  Điện thoại Vsmart Bee(aaaaaaaaa)
+                </Text>
+                <Text style={styles.itemPrice}>699.000đ</Text>
+              </View>
+              <View style={styles.itemContainer}>
+                <Image source={item_image} style={styles.itemImage} />
+                <Text style={styles.itemName} numberOfLines={2}>
+                  Điện thoại Vsmart Bee(aaaaaaaaa)
+                </Text>
+                <Text style={styles.itemPrice}>699.000đ</Text>
+              </View>
             </View>
-          )}
-          <View style={styles.body}>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Step One</Text>
-              <Text style={styles.sectionDescription}>
-                Edit <Text style={styles.highlight}>App.js</Text> to change this
-                screen and then come back to see your edits.
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>See Your Changes</Text>
-              <Text style={styles.sectionDescription}>
-                <ReloadInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Debug</Text>
-              <Text style={styles.sectionDescription}>
-                <DebugInstructions />
-              </Text>
-            </View>
-            <View style={styles.sectionContainer}>
-              <Text style={styles.sectionTitle}>Learn More</Text>
-              <Text style={styles.sectionDescription}>
-                Read the docs to discover what to do next:
-              </Text>
-            </View>
-            <LearnMoreLinks />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
+          </ScrollView>
+        </View>
+      </View>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
+  headerContainer: {
+    flexDirection: 'row',
+    paddingTop: 50,
+    paddingBottom: 4,
+    backgroundColor: '#1e88e5',
   },
-  engine: {
-    position: 'absolute',
-    right: 0,
+  inputContainer: {
+    backgroundColor: '#fff',
+    flexDirection: 'row',
+    flex: 1,
+    marginLeft: 10,
+    alignItems: 'center',
+    paddingVertical: 8,
+    paddingHorizontal: 12,
+    borderRadius: 2,
   },
-  body: {
-    backgroundColor: Colors.white,
+  inputText: {
+    color: '#969696',
+    fontSize: 14,
+    marginLeft: 8,
+    fontWeight: '500',
+  },
+  cartContainer: {
+    paddingHorizontal: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  //
+  bodyContainer: {
+    backgroundColor: '#fff',
   },
   sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+    backgroundColor: '#fff',
+    paddingHorizontal: 12,
   },
   sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
     fontWeight: '700',
+    fontSize: 16,
+    color: '#2f2f2f',
+    marginVertical: 12,
   },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
+  sectionImage: {
+    width: width - 24,
+    height: 130,
+    borderRadius: 4,
+  },
+  listItemContainer: {
+    flexDirection: 'row',
+    marginTop: 20,
+  },
+  itemContainer: {
+    width: 100,
+    marginRight: 12,
+  },
+  itemImage: {
+    width: 100,
+    height: 120,
+  },
+  itemName: {
+    fontSize: 14,
+    color: '#484848',
+    marginVertical: 4,
+  },
+  itemPrice: {
+    fontSize: 16,
+    fontWeight: '500',
+    color: '#2a2a2a',
   },
 });
 
