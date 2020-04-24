@@ -36,79 +36,53 @@ const HomeSectionComponent = () => {
       {/*  */}
       <ScrollView horizontal={true}>
         <View style={styles.filterContainer}>
-          {/*  */}
-          <View style={styles.filterActiveButtonContainer}>
-            <Text style={styles.filterActiveText}>Tất cả</Text>
-          </View>
-          {/*  */}
-          <View style={styles.filterInactiveButtonContainer}>
-            <Text style={styles.filterInactiveText}>Điện thoại SmartPhone</Text>
-          </View>
-          {/*  */}
-          <View style={styles.filterInactiveButtonContainer}>
-            <Text style={styles.filterInactiveText}>Máy tính bảng</Text>
-          </View>
-          {/*  */}
-          <View style={styles.filterInactiveButtonContainer}>
-            <Text style={styles.filterInactiveText}>Điện thoại</Text>
-          </View>
+          {[
+            'Tất cả',
+            'Điện thoại SmartPhone',
+            'Máy tính bảng',
+            'Điện thoại',
+          ].map((e, index) => (
+            <View
+              key={index.toString()}
+              style={
+                index === 0
+                  ? styles.filterActiveButtonContainer
+                  : styles.filterInactiveButtonContainer
+              }>
+              <Text
+                style={
+                  index === 0
+                    ? styles.filterActiveText
+                    : styles.filterInactiveText
+                }>
+                {e}
+              </Text>
+            </View>
+          ))}
         </View>
       </ScrollView>
       {/*  */}
       <ScrollView horizontal={true}>
         <View style={styles.listItemContainer}>
-          {/*  */}
-          <View>
-            <ProductItem
-              name="Điện thoại Vsmart Bee (Smart Bee)"
-              image={item_image_1}
-              price="699.000đ"
-            />
-            <ProductItem
-              name="Điện thoại Vsmart Joy 2 Vsmart Joy 2"
-              image={item_image_2}
-              price="699.000đ"
-            />
-          </View>
-          {/*  */}
-          <View>
-            <ProductItem
-              name="Điện thoại Vsmart Star - Vsmart Star"
-              image={item_image_3}
-              price="699.000đ"
-            />
-            <ProductItem
-              name="Điện thoại Vsmart Live Vsmart Live"
-              image={item_image_3}
-              price="699.000đ"
-            />
-          </View>
-          {/*  */}
-          <View>
-            <ProductItem
-              name="Điện thoại Vsmart Bee(aaaaaaaaa)"
-              image={item_image_4}
-              price="699.000đ"
-            />
-            <ProductItem
-              name="Điện thoại Vsmart Joy 3 Vsmart Joy"
-              image={item_image_1}
-              price="699.000đ"
-            />
-          </View>
-          {/*  */}
-          <View>
-            <ProductItem
-              name="Điện thoại Vsmart Bee (Smart Bee)"
-              image={item_image_1}
-              price="699.000đ"
-            />
-            <ProductItem
-              name="Điện thoại Vsmart Joy 2 Vsmart Joy 2"
-              image={item_image_2}
-              price="699.000đ"
-            />
-          </View>
+          {[
+            {image1: item_image_1, image2: item_image_2},
+            {image1: item_image_2, image2: item_image_3},
+            {image1: item_image_4, image2: item_image_1},
+            {image1: item_image_1, image2: item_image_2},
+          ].map((e) => (
+            <View>
+              <ProductItem
+                name="Điện thoại Vsmart Bee (Smart Bee)"
+                image={e.image1}
+                price="699.000đ"
+              />
+              <ProductItem
+                name="Điện thoại Vsmart Joy 2 Vsmart Joy 2"
+                image={e.image2}
+                price="699.000đ"
+              />
+            </View>
+          ))}
         </View>
       </ScrollView>
       {/*  */}

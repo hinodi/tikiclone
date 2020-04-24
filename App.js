@@ -24,6 +24,8 @@ const App = () => {
         <ScrollView>
           <HomeSectionComponent />
           <HomeSectionComponent />
+          <HomeSectionComponent />
+          <HomeSectionComponent />
         </ScrollView>
       </View>
     </View>
