@@ -1,24 +1,12 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Image,
-  View,
-  Text,
-  StatusBar,
-  Dimensions,
-  ScrollView,
-} from 'react-native';
-
-const {width} = Dimensions.get('window');
+import {StyleSheet, View, Text, StatusBar, ScrollView} from 'react-native';
 
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-
-const section_banner = require('./section_banner.png');
-const item_image = require('./item_image.png');
+import HomeSectionComponent from './src/components/HomeSectionComponents';
 
 const App = () => {
   return (
-    <View>
+    <View style={styles.screenContainer}>
       <StatusBar barStyle="light-content" />
       {/*  */}
       <View style={styles.headerContainer}>
@@ -33,54 +21,19 @@ const App = () => {
       </View>
       {/*  */}
       <View style={styles.bodyContainer}>
-        <View style={styles.sectionContainer}>
-          {/*  */}
-          <Text style={styles.sectionTitle}>Điện thoại - Máy tính bảng</Text>
-          {/*  */}
-          <Image source={section_banner} style={styles.sectionImage} />
-          {/*  */}
-          <ScrollView horizontal={true}>
-            <View style={styles.listItemContainer}>
-              {/*  */}
-              <View style={styles.itemContainer}>
-                <Image source={item_image} style={styles.itemImage} />
-                <Text style={styles.itemName} numberOfLines={2}>
-                  Điện thoại Vsmart Bee(aaaaaaaaa)
-                </Text>
-                <Text style={styles.itemPrice}>699.000đ</Text>
-              </View>
-              {/*  */}
-              <View style={styles.itemContainer}>
-                <Image source={item_image} style={styles.itemImage} />
-                <Text style={styles.itemName} numberOfLines={2}>
-                  Điện thoại Vsmart Bee(aaaaaaaaa)
-                </Text>
-                <Text style={styles.itemPrice}>699.000đ</Text>
-              </View>
-              {/*  */}
-              <View style={styles.itemContainer}>
-                <Image source={item_image} style={styles.itemImage} />
-                <Text style={styles.itemName} numberOfLines={2}>
-                  Điện thoại Vsmart Bee(aaaaaaaaa)
-                </Text>
-                <Text style={styles.itemPrice}>699.000đ</Text>
-              </View>
-              <View style={styles.itemContainer}>
-                <Image source={item_image} style={styles.itemImage} />
-                <Text style={styles.itemName} numberOfLines={2}>
-                  Điện thoại Vsmart Bee(aaaaaaaaa)
-                </Text>
-                <Text style={styles.itemPrice}>699.000đ</Text>
-              </View>
-            </View>
-          </ScrollView>
-        </View>
+        <ScrollView>
+          <HomeSectionComponent />
+          <HomeSectionComponent />
+        </ScrollView>
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
+  screenContainer: {
+    flex: 1,
+  },
   headerContainer: {
     flexDirection: 'row',
     paddingTop: 50,
@@ -110,44 +63,8 @@ const styles = StyleSheet.create({
   },
   //
   bodyContainer: {
+    flex: 1,
     backgroundColor: '#fff',
-  },
-  sectionContainer: {
-    backgroundColor: '#fff',
-    paddingHorizontal: 12,
-  },
-  sectionTitle: {
-    fontWeight: '700',
-    fontSize: 16,
-    color: '#2f2f2f',
-    marginVertical: 12,
-  },
-  sectionImage: {
-    width: width - 24,
-    height: 130,
-    borderRadius: 4,
-  },
-  listItemContainer: {
-    flexDirection: 'row',
-    marginTop: 20,
-  },
-  itemContainer: {
-    width: 100,
-    marginRight: 12,
-  },
-  itemImage: {
-    width: 100,
-    height: 120,
-  },
-  itemName: {
-    fontSize: 14,
-    color: '#484848',
-    marginVertical: 4,
-  },
-  itemPrice: {
-    fontSize: 16,
-    fontWeight: '500',
-    color: '#2a2a2a',
   },
 });
 
