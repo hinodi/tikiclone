@@ -69,8 +69,8 @@ const HomeSectionComponent = () => {
             {image1: item_image_2, image2: item_image_3},
             {image1: item_image_4, image2: item_image_1},
             {image1: item_image_1, image2: item_image_2},
-          ].map((e) => (
-            <View>
+          ].map((e, index) => (
+            <View key={index.toString()}>
               <ProductItem
                 name="Điện thoại Vsmart Bee (Smart Bee)"
                 image={e.image1}
