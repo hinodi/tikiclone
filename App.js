@@ -1,73 +1,45 @@
+import 'react-native-gesture-handler';
 import React from 'react';
-import {StyleSheet, View, Text, StatusBar, ScrollView} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import HomeSectionComponent from './src/components/HomeSectionComponents';
+import HomeScreen from './src/screens/HomeScreen';
+import ProfileScreen from './src/screens/ProfileScreen';
+
+const Tab = createBottomTabNavigator();
 
 const App = () => {
   return (
-    <View style={styles.screenContainer}>
-      <StatusBar barStyle="light-content" />
-      {/*  */}
-      <View style={styles.headerContainer}>
-        <View style={styles.inputContainer}>
-          <FontAwesome name="search" size={24} color="#969696" />
-          <Text style={styles.inputText}>Bạn tìm gì hôm nay?</Text>
-        </View>
-        {/*  */}
-        <View style={styles.cartContainer}>
-          <FontAwesome name="shopping-cart" size={24} color="#fff" />
-        </View>
-      </View>
-      {/*  */}
-      <View style={styles.bodyContainer}>
-        <ScrollView>
-          <HomeSectionComponent />
-          <HomeSectionComponent />
-          <HomeSectionComponent />
-          <HomeSectionComponent />
-        </ScrollView>
-      </View>
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator
+        tabBarOptions={{
+          activeTintColor: '#157cdb',
+          inactiveTintColor: '#262626',
+        }}>
+        <Tab.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{
+            tabBarLabel: 'Trang chủ',
+            tabBarIcon: ({color}) => (
+              <MaterialIcons name="home" size={26} color={color} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Profile"
+          component={ProfileScreen}
+          options={{
+            tabBarLabel: 'Cá nhân',
+            tabBarIcon: ({color}) => (
+              <MaterialIcons name="person" size={26} color={color} />
+            ),
+          }}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({
-  screenContainer: {
-    flex: 1,
-  },
-  headerContainer: {
-    flexDirection: 'row',
-    paddingTop: 50,
-    paddingBottom: 4,
-    backgroundColor: '#1e88e5',
-  },
-  inputContainer: {
-    backgroundColor: '#fff',
-    flexDirection: 'row',
-    flex: 1,
-    marginLeft: 10,
-    alignItems: 'center',
-    paddingVertical: 8,
-    paddingHorizontal: 12,
-    borderRadius: 2,
-  },
-  inputText: {
-    color: '#969696',
-    fontSize: 14,
-    marginLeft: 8,
-    fontWeight: '500',
-  },
-  cartContainer: {
-    paddingHorizontal: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  //
-  bodyContainer: {
-    flex: 1,
-    backgroundColor: '#fff',
-  },
-});
 
 export default App;
