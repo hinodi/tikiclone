@@ -6,6 +6,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 import HomeScreen from './src/screens/HomeScreen';
 import ProfileScreen from './src/screens/ProfileScreen';
+import NotificationScreen from './src/screens/NotificationScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -24,6 +25,16 @@ const App = () => {
             tabBarLabel: 'Trang chủ',
             tabBarIcon: ({color}) => (
               <MaterialIcons name="home" size={26} color={color} />
+            ),
+          }}
+        />
+        <Tab.Screen
+          name="Notification"
+          component={NotificationScreen}
+          options={{
+            tabBarLabel: 'Thông báo',
+            tabBarIcon: ({color}) => (
+              <MaterialIcons name="notifications" size={26} color={color} />
             ),
           }}
         />

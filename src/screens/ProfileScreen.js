@@ -5,6 +5,8 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
+import Header from '../components/HeaderComponent';
+
 const ProfileItem = ({icon, name}) => (
   <View style={styles.itemContainer}>
     <MaterialCommunityIcons name={icon} size={26} color="#1e1e1e" />
@@ -18,22 +20,7 @@ const ProfileScreen = () => {
     <View style={styles.screenContainer}>
       <StatusBar barStyle="light-content" />
       {/*  */}
-      <View style={styles.headerContainer}>
-        {/*  */}
-        <View style={styles.cartContainer}>
-          <View style={styles.cartIcon} />
-        </View>
-        {/*  */}
-        <Text style={styles.headerText}>Cá nhân</Text>
-        {/*  */}
-        <View style={styles.cartContainer}>
-          <FontAwesome
-            name="shopping-cart"
-            size={HEADER_ICON_SIZE}
-            color="#fff"
-          />
-        </View>
-      </View>
+      <Header title="Cá nhân" />
       {/*  */}
       <View style={styles.bodyContainer}>
         <View style={styles.userContainer}>
@@ -66,33 +53,10 @@ const ProfileScreen = () => {
   );
 };
 
-const HEADER_ICON_SIZE = 24;
-
 const styles = StyleSheet.create({
   screenContainer: {
     flex: 1,
   },
-  headerContainer: {
-    flexDirection: 'row',
-    paddingTop: 50,
-    backgroundColor: '#1e88e5',
-    justifyContent: 'space-between',
-    paddingBottom: 12,
-  },
-  cartContainer: {
-    paddingHorizontal: 20,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  cartIcon: {
-    width: HEADER_ICON_SIZE,
-  },
-  headerText: {
-    color: '#fff',
-    fontSize: 20,
-    fontWeight: '500',
-  },
-  //
   bodyContainer: {
     flex: 1,
     backgroundColor: '#ededed',
